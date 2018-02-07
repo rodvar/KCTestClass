@@ -17,7 +17,7 @@ class ClasePruebaKcApplication : Application(), HasActivityInjector {
     @Inject
     lateinit var activityInjector: DispatchingAndroidInjector<Activity>
 
-    lateinit var component: AppComponent
+    private lateinit var component: AppComponent
 
     override fun onCreate() {
         super.onCreate()

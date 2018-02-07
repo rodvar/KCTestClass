@@ -1,6 +1,9 @@
 package com.rodvar.clasepruebakc.di
 
 import android.app.Application
+import com.rodvar.clasepruebakc.ClasePruebaKcApplication
+import com.rodvar.clasepruebakc.MainActivity
+import com.rodvar.clasepruebakc.MainModule
 import dagger.Component
 import dagger.android.support.AndroidSupportInjectionModule
 import javax.inject.Singleton
@@ -12,9 +15,12 @@ import javax.inject.Singleton
 @Singleton
 @Component(modules = arrayOf(
         AndroidSupportInjectionModule::class,
+        MainModule::class,
+        BinderModule::class,
         AppModule::class // add more modules separated by commas..
 ))
 interface AppComponent {
 
-    fun inject(app : Application)
+    fun inject(app : ClasePruebaKcApplication)
+    fun inject(activity: MainActivity)
 }
