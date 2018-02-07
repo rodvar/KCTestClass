@@ -20,12 +20,31 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    kapt {
+        generateStubs = true
+    }
+}
+
+project.ext {
+
+    daggerVersion = "2.14" // or any 2.10z
 }
 
 dependencies {
 //    implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation"org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
     implementation 'com.android.support:appcompat-v7:27.0.0'
+
+//    DI
+// Dagger Core
+    provided "com.google.dagger:dagger:$project.daggerVersion"
+    annotationProcessor "com.google.dagger:dagger-compiler:$project.daggerVersion"
+    kapt "com.google.dagger:dagger-compiler:$project.daggerVersion"
+// Dagger Android    c
+    implementation "com.google.dagger:dagger-android:$project.daggerVersion"
+    annotationProcessor "com.google.dagger:dagger-android-processor:$project.daggerVersion"
+    kapt "com.google.dagger:dagger-android-processor:$project.daggerVersion"
+    implementation "com.google.dagger:dagger-android-support:$project.daggerVersion"
 
 //    UI
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
