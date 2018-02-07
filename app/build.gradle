@@ -27,7 +27,7 @@ android {
 
 project.ext {
 
-    daggerVersion = "2.14" // or any 2.10z
+    daggerVersion = "2.14.1" // or any 2.10z
 }
 
 dependencies {

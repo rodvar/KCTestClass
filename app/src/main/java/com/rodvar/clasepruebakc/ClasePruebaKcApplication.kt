@@ -2,6 +2,9 @@ package com.rodvar.clasepruebakc
 
 import android.app.Activity
 import android.app.Application
+import com.rodvar.clasepruebakc.di.AppComponent
+import com.rodvar.clasepruebakc.di.AppModule
+import com.rodvar.clasepruebakc.di.DaggerAppComponent
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasActivityInjector
@@ -27,7 +30,7 @@ class ClasePruebaKcApplication : Application(), HasActivityInjector {
      */
     private fun createApplicationComponent() {
         component = DaggerAppComponent.builder().appModule(AppModule(this)).build()
-        (component as AppComponent).inject(this)
+        component.inject(this)
     }
 
     override fun activityInjector(): AndroidInjector<Activity> = activityInjector
